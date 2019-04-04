@@ -1,5 +1,5 @@
 import React from 'react'
-import Formulario from '../formulario'
+// import Formulario from '../formulario'
 import Ordenacao from './ordenacao'
 import Pesquisa from './pesquisa'
 import ListaClientes from './lista'
@@ -25,7 +25,7 @@ export default class  Listagem extends React.Component {
                     <h2>Lista de Clientes</h2>
                 </div>
                 <hr />
-                <Formulario />
+                {/*<Formulario />*/}
                 <br />
                 <Opcoes />
                 <br />

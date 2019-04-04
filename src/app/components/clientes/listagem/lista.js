@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {connect} from 'react-redux';
+import * as actions from '../../../actions'
 
 
 const Cliente = (cliente) => (
@@ -12,8 +13,27 @@ const Cliente = (cliente) => (
 )
 
 class ListaClientes extends React.Component {
+    componentDidMount(){
+        this.props.getClientes()
+        
+    }
+    ordenacao = (a,b) => {
+    
+        const {ordenacao} = this.props
+        if (ordenacao === 'a-z') return a.nome.localeCompare(b.nome)
+        else if(ordenacao === 'z-a')   return -1 *  a.nome.localeCompare(b.nome)
+        else if(ordenacao === 'criacao') return new Date(a.criadoEm) - new Date(b.criadoEm) 
+    
+    }
+
+    pesquisa = ({nome,endereco,email,cpf}) => {
+        const {pesquisa} = this.props
+        if(!pesquisa) return true;
+        const item = [nome,endereco,email,cpf].join(';')
+        return item.includes(pesquisa)
+    }
     render(){
-        const {data} = this.props
+        const {clientes:data} = this.props
         return(
             <div className="ListaClientes">
                 <table>
@@ -27,7 +47,10 @@ class ListaClientes extends React.Component {
                     </thead>
                     <tbody>
                         {
-                            data.map((cliente,index) => (
+                            (data || [] )
+                            .filter(this.pesquisa)
+                            .sort(this.ordenacao)
+                            .map((cliente,index) => (
                                 <Cliente  cliente={cliente} key={index} />
                             ))
                         }
@@ -38,5 +61,10 @@ class ListaClientes extends React.Component {
     }
 
 }
+const mapStateToProps = state => ({
+    clientes: state.clientes.clientes,
+    ordenacao: state.clientes.ordenacao,
+    pesquisa: state.clientes.pesquisa
+})
 
-export default ListaClientes
+export default connect(mapStateToProps,actions)(ListaClientes)

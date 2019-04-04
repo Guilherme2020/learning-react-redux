@@ -1,5 +1,5 @@
 import {
-    GET_CLIENTES,ADD_CLIENTE,UPDATE_CLIENTE,REMOVE_CLIENTE
+    GET_CLIENTES,ADD_CLIENTE,UPDATE_CLIENTE,REMOVE_CLIENTE,SET_ORDENACAO,SET_PESQUISA
 } from './types'
 
 
@@ -37,3 +37,9 @@ export const updateCliente = (id, cliente ) => ({type: UPDATE_CLIENTE,cliente:{i
 
 export const removeCliente = (id) => ({type: REMOVE_CLIENTE,id })
 
+//Actions de apoio
+
+export const setOrdenacao = (ev) => ({type:SET_ORDENACAO,ordenacao:ev.target.value})
+
+
+export const setPesquisa = (ev) => ({type:SET_PESQUISA,pesquisa:ev.target.value})
