@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 import * as actions from '../../../actions'
 
 
-const Cliente = (cliente) => (
-    <div>
-        <p>Nome: { cliente.nome }</p>
-        <p>Telefone: { cliente.Telefone }</p>
-        <p>Email: { cliente.email }</p>
-        <p>CPF: { cliente.cpf }</p>
-    </div>
+const Cliente = ({cliente}) => (
+    <tr>
+        <td>{ cliente.nome }</td>
+        <td>{ cliente.telefone }</td>
+        <td>{ cliente.email }</td>
+        <td>{ cliente.cpf }</td>
+    </tr>
 )
 
 class ListaClientes extends React.Component {
@@ -49,9 +49,9 @@ class ListaClientes extends React.Component {
                         {
                             (data || [] )
                             .filter(this.pesquisa)
-                            .sort(this.ordenacao)
+                            // .sort(this.ordenacao)
                             .map((cliente,index) => (
-                                <Cliente  cliente={cliente} key={index} />
+                                <Cliente  cliente={cliente} key={cliente.id} />
                             ))
                         }
                     </tbody>

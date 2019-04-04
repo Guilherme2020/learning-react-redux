@@ -22,7 +22,7 @@ const data = [
         id:1,
         nome:"Cliente Joao",
         cpf:"111.222.333-45",
-        telefone: "111-444",
+        telefone: "111-4442121",
         email: "joao@gmail.com",
         criadoEm: getDate(),
         atualizadoEm: getDate()
