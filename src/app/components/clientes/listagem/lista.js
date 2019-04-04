@@ -26,10 +26,10 @@ class ListaClientes extends React.Component {
     
     }
 
-    pesquisa = ({nome,endereco,email,cpf}) => {
+    pesquisa = ({nome,telefone,email,cpf}) => {
         const {pesquisa} = this.props
         if(!pesquisa) return true;
-        const item = [nome,endereco,email,cpf].join(';')
+        const item = [nome,telefone,email,cpf].join(';')
         return item.includes(pesquisa)
     }
     render(){
