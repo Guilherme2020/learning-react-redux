@@ -1,1 +1,7 @@
+
+
 export const ADICIONAR_UM = 'ADICIONAR_UM'
+export const GET_CLIENTES = 'GET_CLIENTES'
+export const ADD_CLIENTE = 'ADD_CLIENTE'
+export const UPDATE_CLIENTE = 'UPDATE_CLIENTE'
+export const REMOVE_CLIENTE = "REMOVE_CLIENTE"
