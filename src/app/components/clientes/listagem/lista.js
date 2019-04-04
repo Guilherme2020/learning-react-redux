@@ -1,16 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import * as actions from '../../../actions'
+import Cliente from './cliente'
 
 
-const Cliente = ({cliente}) => (
-    <tr>
-        <td>{ cliente.nome }</td>
-        <td>{ cliente.telefone }</td>
-        <td>{ cliente.email }</td>
-        <td>{ cliente.cpf }</td>
-    </tr>
-)
 
 class ListaClientes extends React.Component {
     componentDidMount(){

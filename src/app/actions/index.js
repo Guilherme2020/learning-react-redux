@@ -2,7 +2,7 @@ import {
     GET_CLIENTES,ADD_CLIENTE,UPDATE_CLIENTE,REMOVE_CLIENTE,SET_ORDENACAO,SET_PESQUISA
 } from './types'
 
-
+ 
 
 const generateId = () => Math.floor(Math.random()*100000+100000)
 
